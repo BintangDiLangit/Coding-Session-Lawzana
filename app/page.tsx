@@ -2,6 +2,7 @@
 
 import { Radio, RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 const deliveryMethods = [
   {
@@ -34,7 +35,29 @@ export default function CheckoutForm() {
   const selectedDeliveryMethod = deliveryMethods[0];
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 relative flex">
+      <div className="rounded-md bg-yellow-50 p-4 w-[350px] h-auto   shadow  ">
+        <div className="flex sticky top-4">
+          <div className="flex-shrink-0">
+            <ExclamationTriangleIcon
+              aria-hidden="true"
+              className="h-5 w-5 text-yellow-400"
+            />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-yellow-800">Tasks</h3>
+            <div className="mt-2 text-sm text-yellow-700">
+            <ul role="list" className="list-disc space-y-4 pl-5">
+              <li>Show only the form that matches the current step in the progress bar.
+              </li>
+              <li>Be able to navigate to previous steps to update data, but prevent them from jumping to the next step (whether by clicking the "Next" button or the progress bar) until all required fields in the current step are filled.</li>
+              <li>Refactor the component – currently, all components are in the same file, which needs to be separated into individual components for better structure.</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-4xl px-4 pb-24 pt-16 sm:px-6  lg:px-8">
         <nav aria-label="Progress">
           <ol className="space-y-4 md:flex md:space-x-8 md:space-y-0">
